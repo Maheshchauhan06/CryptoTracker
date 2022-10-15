@@ -22,7 +22,7 @@ function LandingComponent() {
           <span className="big-heading-blue">Real Time.</span>
         </motion.h1>
         <p className="para">
-          Track crypto through a public api in real time. Visit the dashboard to
+          Track Crypto through a public api in real time. Visit the dashboard to
           do so!
         </p>
         <div className="button-div">
