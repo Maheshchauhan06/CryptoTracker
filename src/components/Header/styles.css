@@ -11,6 +11,25 @@
   z-index: 100;
 }
 
+.dark-theme {
+  --blue: #3a80e9;
+  --white: #ffffff;
+  --black: #111;
+  --grey: #888;
+  --darkgrey: #1b1b1b;
+  --green: #61c96f;
+  --red: #f94141;
+}
+.light-theme {
+  --blue: #3a80e9;
+  --black: #ffffff;
+  --white: #111;
+  --grey: #888;
+  --darkgrey: hsl(0, 17%, 95%);
+  --green: #61c96f;
+  --red: #f94141;
+}
+
 .links-flex {
   display: flex;
   justify-content: flex-end;
@@ -43,12 +62,23 @@
   font-weight: 500;
 }
 
+.draw-container{
+  display: flex;
+}
+
+.navbar-leftside{
+  display: flex;
+  align-items: center;
+}
+
+
 @media only screen and (max-width: 800px) {
   .navbar {
     padding: 1rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
+  
 
   .links-flex {
     display: none;
