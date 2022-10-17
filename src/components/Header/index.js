@@ -6,7 +6,7 @@ import Toggle from './Toggle'
 import { useState } from "react";
 
 function Header() {
-  const [theme, settheme] = useState("dark-theme")
+  const [theme, settheme] = useState("light-theme")
 
   const changetheme = () =>{
        if(theme==="light-theme"){
@@ -31,7 +31,8 @@ function Header() {
         </h1>
         </a> 
       <div className="navbar-leftside">
-      <div onClick={changetheme} className="toggle"><Toggle onClick={changetheme} /></div>
+      <div onClick={changetheme} className="toggle">
+      <Toggle onClick={changetheme} /></div>
       
       <div className="links-flex">
         <a href="/">
