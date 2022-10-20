@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles.css";
-import iPhone from "../../../assets/iphone.png";
+import iPhone2 from "../../../assets/iphone2.png";
 import gradient from "../../../assets/gradient.png";
 import { motion } from "framer-motion";
 import Button from "../../Button";
@@ -22,7 +22,7 @@ function LandingComponent() {
           <span className="big-heading-blue">Real Time.</span>
         </motion.h1>
         <p className="para">
-          Track crypto through a public api in real time. Visit the dashboard to
+          Track Crypto through a public api in real time. Visit the dashboard to
           do so!
         </p>
         <div className="button-div">
@@ -45,7 +45,7 @@ function LandingComponent() {
       <div className="img-box">
         <img className="gradient" src={gradient} />
         <motion.img
-          src={iPhone}
+          src={iPhone2}
           className="phone"
           initial={{ y: -10 }}
           animate={{ y: 10 }}
