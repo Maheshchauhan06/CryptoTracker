@@ -1,58 +1,46 @@
 import Drawer from "./Drawer";
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import Button from "../Button";
 import "./styles.css";
+import Toggle from './Toggle'
+import { useState } from "react";
 import { Switch } from "@mui/material";
 
 function Header() {
-  const setDark = () => {
-    localStorage.setItem("theme", "dark");
-    document.documentElement.setAttribute("data-theme", "dark");
-  };
-
-  const setLight = () => {
-    localStorage.setItem("theme", "light");
-    document.documentElement.setAttribute("data-theme", "light");
-  };
-
-  const storedTheme = localStorage.getItem("theme");
-
-  const prefersDark =
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-  const defaultDark =
-    storedTheme === "dark" || (storedTheme === null && prefersDark);
-
-  const [darkTheme, setDarkTheme] = useState(
-    defaultDark == "dark" ? true : false
-  );
-
-  if (defaultDark) {
-    setDark();
-  }
-
-  const toggleTheme = (e) => {
-    if (!darkTheme) {
-      setDark();
-    } else {
-      setLight();
-    }
-    setDarkTheme(!darkTheme);
-  };
+  const [theme, settheme] = useState("light-theme")
+   
+   {/* change theme */}
+  const changetheme = () =>{
+       if(theme==="light-theme"){
+        settheme("dark-theme")
+       }else{
+        settheme("light-theme")
+       }
+      }
+   
+    useEffect(() => {
+     document.body.className=theme;
+     console.log(theme)
+    }, [theme])
+    
+  
 
   return (
     <div className="navbar">
       <a href="/">
-        <h1 className="heading">
-          CryptoTracker<span style={{ color: "var(--blue)" }}>.</span>
+        <h1 className="heading"> 
+          CryptoTracker <span style={{ color: "var(--blue)" }}>.</span>
         </h1>
-      </a>
+        </a> 
+      <div className="navbar-leftside">
+      <div onClick={changetheme} className="toggle">
+      <Toggle onClick={changetheme} /></div>
+      
       <div className="links-flex">
         <Switch
           defaultChecked
-          value={!darkTheme}
-          onClick={() => toggleTheme()}
+          value={!theme=='dark-theme'}
+          onClick={() => theme()}
         />
         <a href="/">
           <p className="links">Home</p>
@@ -70,7 +58,8 @@ function Header() {
         </a>
       </div>
       <div className="menu-div">
-        <Drawer />
+        <Drawer/>
+      </div>
       </div>
     </div>
   );

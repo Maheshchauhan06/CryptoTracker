@@ -44,19 +44,20 @@
 }
 
 .phone {
-  width: 65%;
+  width: 100%;
   display: block;
   margin-left: auto;
   margin-right: auto;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 2rem;
+  right: 0rem;
+  left: 7rem;
   min-width: 270px;
 }
 
 .gradient {
   position: absolute;
-  width: 55%;
+  width: 40%;
   object-fit: contain;
   top: 7rem;
   right: 0rem;
@@ -110,6 +111,8 @@
     margin-top: 5rem;
   }
 
+
+
   .gradient {
     top: 4rem;
     min-width: 200px;
@@ -127,6 +130,7 @@
 
   .big-heading {
     font-size: 3.5rem;
+    
   }
   .phone {
     max-width: 300px;

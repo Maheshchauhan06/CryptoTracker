@@ -3,7 +3,8 @@ import Drawer from "@mui/material/Drawer";
 import MenuIcon from "@mui/icons-material/Menu";
 import { IconButton, Switch } from "@mui/material";
 import "./styles.css";
-export default function TemporaryDrawer() {
+import Toggle from "./Toggle";
+export default function TemporaryDrawer( ) {
   const [open, setOpen] = useState(false);
   const setDark = () => {
     localStorage.setItem("theme", "dark");
@@ -41,14 +42,15 @@ export default function TemporaryDrawer() {
     setDarkTheme(!darkTheme);
   };
   return (
-    <div>
+    <div className="draw-container">  
       <div className="menu-button">
         <IconButton onClick={() => setOpen(true)}>
           <MenuIcon style={{ color: "var(--white)" }} />
         </IconButton>
       </div>
       <Drawer anchor={"right"} open={open} onClose={() => setOpen(false)}>
-        <div className="drawer-div">
+       
+      <div className="drawer-div">
           <a href="/">
             <p className="links">Home</p>
           </a>
