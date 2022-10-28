@@ -4,6 +4,7 @@ import Button from "../Button";
 import "./styles.css";
 import Toggle from './Toggle'
 import { useState } from "react";
+import Login from '../login/Login'
 
 function Header() {
   const [theme, settheme] = useState(localStorage.getItem('theme'))
@@ -36,7 +37,9 @@ function Header() {
         </a> 
       <div className="navbar-leftside">
       <div onClick={changetheme} className="toggle">
-      <Toggle onClick={changetheme} /></div>
+      <Toggle onClick={changetheme} />
+      </div>
+       <Login/>
       
       <div className="links-flex">
        
