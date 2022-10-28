@@ -4,17 +4,19 @@ import Button from "../Button";
 import "./styles.css";
 import Toggle from './Toggle'
 import { useState } from "react";
-import { Switch } from "@mui/material";
 
 function Header() {
-  const [theme, settheme] = useState("light-theme")
+  const [theme, settheme] = useState(localStorage.getItem('theme'))
    
+
    {/* change theme */}
   const changetheme = () =>{
        if(theme==="light-theme"){
-        settheme("dark-theme")
+    localStorage.setItem('theme','dark-theme')
+    settheme(localStorage.getItem('theme'))
        }else{
-        settheme("light-theme")
+    localStorage.setItem('theme','light-theme')
+    settheme(localStorage.getItem('theme'))
        }
       }
    
@@ -37,11 +39,7 @@ function Header() {
       <Toggle onClick={changetheme} /></div>
       
       <div className="links-flex">
-        <Switch
-          defaultChecked
-          value={!theme=='dark-theme'}
-          onClick={() => theme()}
-        />
+       
         <a href="/">
           <p className="links">Home</p>
         </a>

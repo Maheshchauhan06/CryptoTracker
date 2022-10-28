@@ -3,44 +3,13 @@ import Drawer from "@mui/material/Drawer";
 import MenuIcon from "@mui/icons-material/Menu";
 import { IconButton, Switch } from "@mui/material";
 import "./styles.css";
-import Toggle from "./Toggle";
+
+
 export default function TemporaryDrawer( ) {
   const [open, setOpen] = useState(false);
-  const setDark = () => {
-    localStorage.setItem("theme", "dark");
-    document.documentElement.setAttribute("data-theme", "dark");
-  };
 
-  const setLight = () => {
-    localStorage.setItem("theme", "light");
-    document.documentElement.setAttribute("data-theme", "light");
-  };
 
-  const storedTheme = localStorage.getItem("theme");
 
-  const prefersDark =
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-  const defaultDark =
-    storedTheme === "dark" || (storedTheme === null && prefersDark);
-
-  const [darkTheme, setDarkTheme] = useState(
-    defaultDark == "dark" ? true : false
-  );
-
-  if (defaultDark) {
-    setDark();
-  }
-
-  const toggleTheme = (e) => {
-    if (!darkTheme) {
-      setDark();
-    } else {
-      setLight();
-    }
-    setDarkTheme(!darkTheme);
-  };
   return (
     <div className="draw-container">  
       <div className="menu-button">
@@ -64,11 +33,7 @@ export default function TemporaryDrawer( ) {
             <p className="links">Dashboard</p>
           </a>
           <p className="links">
-            <Switch
-              defaultChecked
-              value={!darkTheme}
-              onClick={() => toggleTheme()}
-            />
+           
           </p>
         </div>
       </Drawer>

@@ -57,7 +57,7 @@ export default function Toggle() {
   return (
     <FormGroup>
       <FormControlLabel
-        control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
+        control={<MaterialUISwitch sx={{ m: 1 }}  />}
        
       />
      
