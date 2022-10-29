@@ -5,8 +5,21 @@ import "./styles.css";
 import Toggle from './Toggle'
 import { useState } from "react";
 import Login from '../login/Login'
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../firebase";
+import Tracklist from '../Tracklist/Tracklist'
 
 function Header() {
+
+  const [user, setuser] = useState([]);
+   
+  useEffect(() => {
+   onAuthStateChanged(auth , (cuser)=>{
+     setuser(cuser);
+   })
+  }, []);
+
+
   const [theme, settheme] = useState(localStorage.getItem('theme'))
    
 
@@ -26,7 +39,8 @@ function Header() {
      console.log(theme)
     }, [theme])
     
-  
+     
+
 
   return (
     <div className="navbar">
@@ -39,8 +53,7 @@ function Header() {
       <div onClick={changetheme} className="toggle">
       <Toggle onClick={changetheme} />
       </div>
-       <Login/>
-      
+        { user ?  <Tracklist/> :   <Login/> }
       <div className="links-flex">
        
         <a href="/">
