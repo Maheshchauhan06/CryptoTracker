@@ -11,20 +11,18 @@
     font-size: 1.5rem;
 }
 
-.tracklist{
+.track-list{
     width: 100%;
-    height: 50%;
-    background: var(--black);
+    height: 40%;
     overflow-y: scroll;
-    scroll-behavior: auto;
-    gap: 1px;
+    display: flex;
+    flex-direction: column;
+    background: var(--grey);
 }
 
-
-.tracklist > h4 {
-width: 100%;
-font-size: 1rem;
-padding: 1rem;
-color: var(--white);
-border: 1px solid gray;
+.track-list >span{
+    width: 100%;
+    padding: .4rem;
+     
 }
+

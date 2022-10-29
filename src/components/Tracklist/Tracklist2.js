@@ -13,13 +13,24 @@ const Tracklist2 = () => {
         border:'2px solid var(--green)'
     }} src={auth.currentUser?.photoURL} />
     <h3 > {auth.currentUser?.displayName} </h3>
-     <div className="tracklist">
-      <h4> bitcoin 2220202 </h4>
-      <h4> bitcoin 2220202 </h4>
-      <h4> bitcoin 2220202 </h4>
-      <h4> bitcoin 2220202 </h4>
-      <h4> bitcoin 2220202 </h4>
-      <h4> bitcoin 2220202 </h4>
+     <div className='track-list' >
+      <span>bitcoin 293830$</span>
+      <span>bitcoin 293830$</span>
+      <span>bitcoin 293830$</span>
+      <span>bitcoin 293830$</span>
+      <span>bitcoin 293830$</span>
+      <span>bitcoin 293830$</span>
+      <span>bitcoin 293830$</span>
+      <span>bitcoin 293830$</span>
+      <span>bitcoin 293830$</span>
+      <span>bitcoin 293830$</span>
+      <span>bitcoin 293830$</span>
+      <span>bitcoin 293830$</span>
+      <span>bitcoin 293830$</span>
+      <span>bitcoin 293830$</span>
+      <span>bitcoin 293830$</span>
+      <span>bitcoin 293830$</span>
+      <span>bitcoin 293830$</span>
      </div>
     </div>
     </>
