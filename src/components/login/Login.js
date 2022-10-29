@@ -1,11 +1,17 @@
 import React from 'react'
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
+import './login.css'
+import {ReactComponent as Google} from '../../assets/Google.svg'
+import { signInWithPopup } from 'firebase/auth';
+import { auth, provider } from '../../firebase';
 
 const Login = () => {
     const [open, setOpen] = React.useState(false);
+
+    const sigin = () => {
+      signInWithPopup(auth, provider);
+  }
 
   const handleClickOpen = () => {
     setOpen(true);

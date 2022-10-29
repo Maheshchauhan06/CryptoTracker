@@ -3,6 +3,7 @@
     height: fit-content;
     display: flex;
     align-items: center;
+    flex-direction: column;
 }
 
 .container > h1{
@@ -16,7 +17,7 @@
     border-radius: .3rem;
     border-width: 0;
     outline-width: 0;
-    border: .5px solid var(--gray);
+    border: .5px solid var(--grey);
 }
 
 .signup{
