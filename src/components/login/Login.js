@@ -26,7 +26,7 @@ const Login = () => {
     <Button variant="outlined" onClick={handleClickOpen}>
         Login
       </Button>
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog  open={open} onClose={handleClose}>
       <div className="container">
       <h1> Sign Up  </h1>
       <input type="text" placeholder='First Name' />
@@ -36,7 +36,7 @@ const Login = () => {
       <input type="password" placeholder='Confirm Password' />
        <button className='signup' >Sign up</button>
        <div className="break">
-     <p></p> Or Login with <p></p></div>
+     <p> Or Login with </p></div>
      <div className="icon">
         <Google  onClick = {sigin} />
        </div>

@@ -4,6 +4,9 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
 }
 
 .container > h1{
@@ -11,7 +14,7 @@
 }
 
 .container > input{
-    width: 60%;
+    width: 18rem;
     padding: .7rem;
     margin-top: .5rem;
     border-radius: .3rem;
@@ -26,6 +29,7 @@
     height: 2rem;
     background-color: var(--blue);
     border: 0;
+    padding: 1rem;
     color: var(--white);
     border-radius: 2rem;
     cursor: pointer;
