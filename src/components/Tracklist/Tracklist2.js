@@ -4,6 +4,7 @@ import './Tracklist.css'
 import { auth, provider } from "../../firebase";
 import ExitToAppRoundedIcon from '@mui/icons-material/ExitToAppRounded';
 import { signOut } from 'firebase/auth';
+import { DeleteForeverRounded } from '@mui/icons-material';
 
 
 const Tracklist2 = () => {
@@ -23,28 +24,12 @@ const Tracklist2 = () => {
     <h3 > {auth.currentUser?.displayName} </h3>
     <h3 > Track list </h3>
      <div className='track-list' >
-      <span>bitcoin 293830$</span>
-      <span>bitcoin 293830$</span>
-      <span>bitcoin 293830$</span>
-      <span>bitcoin 293830$</span>
-      <span>bitcoin 293830$</span>
-      <span>bitcoin 293830$</span>
-      <span>bitcoin 293830$</span>
-      <span>bitcoin 293830$</span>
-      <span>bitcoin 293830$</span>
-      <span>bitcoin 293830$</span>
-      <span>bitcoin 293830$</span>
-      <span>bitcoin 293830$</span>
-      <span>bitcoin 293830$</span>
-      <span>bitcoin 293830$</span>
-      <span>bitcoin 293830$</span>
-      <span>bitcoin 293830$</span>
-      <span>bitcoin 293830$</span>
+      <span>bitcoin 293830$ <DeleteForeverRounded sx={{cursor:'pointer', ":hover": { fontSize:'2rem' } }} /> </span>
      </div>
-     <button onClick={signout} ><ExitToAppRoundedIcon /> Log Out</button>
+     <button onClick={signout} ><ExitToAppRoundedIcon sx={{fontSize:'1.5rem', marginRight:'1rem', color:'var(--white)' }} /> Log Out</button>
     </div>
     </>
   )
 }
 
-export default Tracklist2
+export default Tracklist2;

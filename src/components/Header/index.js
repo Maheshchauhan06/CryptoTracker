@@ -56,7 +56,7 @@ function Header() {
       <div onClick={changetheme} className="toggle">
       <Toggle onClick={changetheme} />
       </div>
-        { user ?  <Tracklist/> :  <button className="login-btn"  onClick={signin} >Login</button> }
+        { user ?  <Tracklist/> :  <Button  onClick={signin} text="Login" /> }
       <div className="links-flex">
        
         <a href="/">
@@ -65,9 +65,6 @@ function Header() {
         <a href="/compare">
           <p className="links">Compare</p>
         </a>
-        {/* <a href="/about-us">
-          <p className="links">About Us</p>
-        </a> */}
         <a href="/dashboard">
           <p className="links">
             <Button text="Dashboard" />
