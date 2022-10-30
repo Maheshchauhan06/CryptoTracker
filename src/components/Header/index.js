@@ -4,9 +4,8 @@ import Button from "../Button";
 import "./styles.css";
 import Toggle from './Toggle'
 import { useState } from "react";
-import Login from '../login/Login'
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../../firebase";
+import { onAuthStateChanged, signInWithPopup } from "firebase/auth";
+import { auth, provider } from "../../firebase";
 import Tracklist from '../Tracklist/Tracklist'
 
 function Header() {
@@ -18,6 +17,10 @@ function Header() {
      setuser(cuser);
    })
   }, []);
+
+  const signin =()=>{
+     signInWithPopup(auth,provider)
+  }
 
 
   const [theme, settheme] = useState(localStorage.getItem('theme'))
@@ -53,7 +56,7 @@ function Header() {
       <div onClick={changetheme} className="toggle">
       <Toggle onClick={changetheme} />
       </div>
-        { user ?  <Tracklist/> :   <Login/> }
+        { user ?  <Tracklist/> :  <button className="login-btn"  onClick={signin} >Login</button> }
       <div className="links-flex">
        
         <a href="/">

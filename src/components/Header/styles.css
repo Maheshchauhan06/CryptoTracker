@@ -95,3 +95,13 @@
     font-size: 1rem;
   }
 }
+
+.login-btn{
+  padding: .6rem 1rem;
+  text-align: center;
+  border-radius: 1rem;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: bold;
+}
