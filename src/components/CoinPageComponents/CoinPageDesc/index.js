@@ -1,4 +1,5 @@
 import React from "react";
+import Wactlistbtn from "../../Button/Wactlistbtn";
 
 function CoinPageDesc({ name, desc }) {
   return (

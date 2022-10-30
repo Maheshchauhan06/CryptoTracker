@@ -3,8 +3,11 @@ import Button from './index'
 import PlaylistAddRoundedIcon from '@mui/icons-material/PlaylistAddRounded';
 
 const Wactlistbtn = () => {
+
+ 
+
   return (
-    <> <Button text={ "Add to WatchList +"  } />
+    <> <Button  text={ "Add to WatchList +"  } />
     </>
   )
 }
