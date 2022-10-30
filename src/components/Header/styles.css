@@ -42,6 +42,7 @@
   color: var(--grey);
   transition: all 0.3s;
   margin-left: 2rem;
+  padding: .7rem;
 }
 
 

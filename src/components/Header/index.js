@@ -7,6 +7,7 @@ import { useState } from "react";
 import { onAuthStateChanged, signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../../firebase";
 import Tracklist from '../Tracklist/Tracklist'
+import Wactlistbtn from "../Button/Wactlistbtn";
 
 function Header() {
 
