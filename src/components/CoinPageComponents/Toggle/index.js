@@ -5,6 +5,7 @@ import { getPrices } from "../../../functions/getPrices";
 import { getPriorDate } from "../../../functions/getPriorDate";
 import { getDaysArray } from "../../../functions/getDaysArray";
 import Wactlistbtn from "../../Button/Wactlistbtn";
+import './styles.css'
 
 export default function ColorToggleButton({
   type,
@@ -76,7 +77,7 @@ export default function ColorToggleButton({
     }
   }, []);
 
-  return (
+  return ( <div className="contain-toggle"> 
     <ToggleButtonGroup
       color="primary"
       value={type}
@@ -119,5 +120,7 @@ export default function ColorToggleButton({
         Volume
       </ToggleButton>
     </ToggleButtonGroup>
+    <Wactlistbtn className="btn" />
+     </div>
   );
 }
