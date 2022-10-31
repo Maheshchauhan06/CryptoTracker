@@ -11,7 +11,6 @@ export default function ColorToggleButton({
   type,
   setType,
   days,
-  chartData,
   setChartData,
   id,
   id2,
@@ -120,7 +119,7 @@ export default function ColorToggleButton({
         Volume
       </ToggleButton>
     </ToggleButtonGroup>
-    <Wactlistbtn className="btn" />
+    <Wactlistbtn id={id} id2={id2} className="btn" />
      </div>
   );
 }
