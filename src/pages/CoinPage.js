@@ -154,6 +154,7 @@ function CoinPage() {
                 chartData={chartData}
                 setChartData={setChartData}
                 id={data.id}
+                coin={coin}
               />
             </div>
             <LineChart chartData={chartData} options={options} />

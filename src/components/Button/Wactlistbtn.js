@@ -2,27 +2,18 @@ import React, { useEffect } from 'react'
 import Button from './index'
 import { useState } from 'react'
 
-const Wactlistbtn = ({id,id2}) => {
-   const [coinid, setcoinid] = useState('')
+const Wactlistbtn = ({id,id2,coin}) => {
+
 
    const addlist =  ()=>{
-       setcoinid([{
-         cryptoid:Math.random()*10000,
-          crypto:id,
-          crypto2:id2,
-       },...coinid,
-      ])
-      console.log(id, id2);
+        console.log(  coin.market_cap,'😎😎😎' , coin.current_price.toLocaleString(),  coin.symbol );
    }
      
-   useEffect(() => {
-      localStorage.setItem('id',JSON.stringify(coinid))
-   }, [])
-   
 
   return (
-    <> 
-    <Button onClick={addlist} text={ "Add to WatchList +"  } />
+    <> <div style={{ display:id2!=undefined ?'none':'inherit'  }}   >
+    <Button  onClick={addlist} text={ "Add to WatchList +"  } />
+    </div>
     </>
   )
 }

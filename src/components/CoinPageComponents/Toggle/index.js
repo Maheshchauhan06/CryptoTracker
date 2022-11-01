@@ -14,6 +14,7 @@ export default function ColorToggleButton({
   setChartData,
   id,
   id2,
+  coin,
 }) {
   const today = new Date();
   const [isMobile, setIsMobile] = React.useState(false);
@@ -119,7 +120,7 @@ export default function ColorToggleButton({
         Volume
       </ToggleButton>
     </ToggleButtonGroup>
-    <Wactlistbtn id={id} id2={id2} className="btn" />
+    <Wactlistbtn id={id} id2={id2} coin={coin} className="btn" />
      </div>
   );
 }
