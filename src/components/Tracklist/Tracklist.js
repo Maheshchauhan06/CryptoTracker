@@ -2,13 +2,17 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import { Avatar } from '@mui/material';
-import { auth } from '../../firebase';
+import { auth, db } from '../../firebase';
 import Tracklist2 from './Tracklist2';
+import { useState } from 'react';
 
 export default function SwipeableTemporaryDrawer() {
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     right: false,
   });
+
+
+   
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -42,7 +46,8 @@ export default function SwipeableTemporaryDrawer() {
             onClose={toggleDrawer(anchor, false)}
             onOpen={toggleDrawer(anchor, true)}
           > 
-             <Tracklist2/>
+            <Tracklist2/>
+              
             {list(anchor)}
           </SwipeableDrawer>
         </React.Fragment>

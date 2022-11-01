@@ -1,13 +1,18 @@
 import React, { useEffect } from 'react'
 import Button from './index'
-import { useState } from 'react'
 
-const Wactlistbtn = ({id,id2,coin}) => {
+const Wactlistbtn = ({id2,coin}) => {
 
+   const value =
+     [  {id: Math.random()*10000,
+       name: coin.name,
+       img : coin.image,
+       price : coin.current_price}]
+   
 
-   const addlist =  ()=>{
-        console.log(  coin.market_cap,'😎😎😎' , coin.current_price.toLocaleString(),  coin.symbol );
-   }
+    const addlist=()=>{
+      localStorage.setItem('item', JSON.stringify(value))
+    }
      
 
   return (
