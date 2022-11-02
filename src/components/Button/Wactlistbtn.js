@@ -1,14 +1,25 @@
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
-import { addlist } from '../../functions/addlist'
-import Button from './index'
+import { db } from '../../firebase'
+import Button from './index'   
 
 const Wactlistbtn = ({id,id2,coin}) => {
-   const [value, setvalue] = useState('')
-   
 
+   const addlist =async () =>{
+  const payload = {
+    name : coin.name,
+    crytpoid: coin.id,
+    img : coin.image,
+    price: coin.current_price.toLocaleString() ,
+    timestamp : serverTimestamp()
+  }
+ await addDoc(collection(db,'id'),payload);
+   }
+ 
+ 
   return (
     <> <div style={{ display:id2!=undefined ?'none':'inherit'  }}   >
-    <Button  onClick={()=> addlist(id, coin,value,setvalue)} text={ "Add to WatchList +"  } />
+    <Button   onClick={ addlist} text={ "Add to WatchList +"  } />
     </div>
     </>
   )

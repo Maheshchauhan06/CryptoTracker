@@ -1,11 +1,14 @@
 import { Avatar } from '@mui/material'
 import React from 'react'
 import './Tracklist.css'
-import { auth, provider } from "../../firebase";
+import { auth, db, provider } from "../../firebase";
 import ExitToAppRoundedIcon from '@mui/icons-material/ExitToAppRounded';
 import { signOut } from 'firebase/auth';
 import { DeleteForeverRounded } from '@mui/icons-material';
 import { useEffect , useState } from 'react';
+import { collection, onSnapshot, query } from 'firebase/firestore';
+import { orderBy } from 'firebase/firestore';
+import Wactlistbtn from '../Button/Wactlistbtn';
 
 
 const Tracklist2 = () => {
@@ -14,13 +17,21 @@ const Tracklist2 = () => {
  }
 
  const [crypto, setcrypto] = useState([])
-
- useEffect( () => {
-    const getvalue =  JSON.parse(localStorage.getItem('item'))
-    if (getvalue) setcrypto(getvalue)
-  }, [])
-  console.log(crypto);
+   
  
+
+
+  useEffect(() => {
+    const q= query(collection(db,'id'),orderBy('timestamp','desc'))
+    onSnapshot(q,(snap)=>{
+      setcrypto(snap.docs.map((doc)=>(
+        {...doc.data(), id:doc.id}
+      )
+      ))
+    })
+      console.log(crypto,'😎😎😎');
+  }, [])
+  
 
 
 
@@ -35,7 +46,7 @@ const Tracklist2 = () => {
     <h3 > Track list </h3>
     <div className='track-list' >
    { crypto?.map(
-     value => <span> {value.name} {value.price}  <DeleteForeverRounded sx={{cursor:'pointer', ":hover": { fontSize:'2rem' } }} /> </span>
+     (value,id) => <span key={id} >  <div><img style={{width:'25px' }} src={value.img} alt="internet problem" /> {value.name.slice} {value.price}$  </div>    <DeleteForeverRounded sx={{cursor:'pointer', ":hover": { fontSize:'2rem' } }} /> </span>
 
    )
 
@@ -45,6 +56,8 @@ const Tracklist2 = () => {
      </div>
      
      <button onClick={signout} ><ExitToAppRoundedIcon sx={{fontSize:'1.5rem', marginRight:'1rem', color:'var(--white)' }} /> Log Out</button>
+    </div>
+    <div style={{display:'none'}} className="btn">
     </div>
     </>
   )
