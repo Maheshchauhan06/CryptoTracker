@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { db } from '../../firebase'
 import Button from './index'   
 
-const Wactlistbtn = ({id,id2,coin}) => {
+const Wactlistbtn = ({value, id,id2,coin}) => {
+ 
 
    const addlist =async () =>{
   const payload = {
@@ -15,11 +16,20 @@ const Wactlistbtn = ({id,id2,coin}) => {
   }
  await addDoc(collection(db,'id'),payload);
    }
- 
- 
+  const check = ()=>{
+     if(value.includes(coin.name)){
+       console.log(false);
+       return false
+     }else{
+      console.log(true);
+      return true
+     }
+  }
+
+   
   return (
     <> <div style={{ display:id2!=undefined ?'none':'inherit'  }}   >
-    <Button   onClick={ addlist} text={ "Add to WatchList +"  } />
+    <Button   onClick={ addlist} text={check==true? "Add to WatchList +" : 'Already Added' } />
     </div>
     </>
   )

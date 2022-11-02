@@ -18,9 +18,6 @@ const Tracklist2 = () => {
 
  const [crypto, setcrypto] = useState([])
    
- 
-
-
   useEffect(() => {
     const q= query(collection(db,'id'),orderBy('timestamp','desc'))
     onSnapshot(q,(snap)=>{
@@ -29,9 +26,13 @@ const Tracklist2 = () => {
       )
       ))
     })
-      console.log(crypto,'😎😎😎');
   }, [])
   
+     const value = crypto.map((newvalue)=>{
+       return newvalue.name;
+     })
+
+    
 
 
 
@@ -46,19 +47,18 @@ const Tracklist2 = () => {
     <h3 > Track list </h3>
     <div className='track-list' >
    { crypto?.map(
-     (value,id) => <span key={id} >  <div><img style={{width:'25px' }} src={value.img} alt="internet problem" /> {value.name.slice} {value.price}$  </div>    <DeleteForeverRounded sx={{cursor:'pointer', ":hover": { fontSize:'2rem' } }} /> </span>
+     (value,id) =>  <> <span key={id} >  <div><img style={{width:'25px' }} src={value.img} alt="internet problem" /> {value.name} {value.price}$  </div>    <DeleteForeverRounded sx={{cursor:'pointer', ":hover": { fontSize:'2rem' } }} /> </span>
 
+     </>
    )
-
    }
-    
-
      </div>
-     
+     <div style={{display:'none'}} >
+     <Wactlistbtn  value={value}  />
+     </div>
      <button onClick={signout} ><ExitToAppRoundedIcon sx={{fontSize:'1.5rem', marginRight:'1rem', color:'var(--white)' }} /> Log Out</button>
     </div>
-    <div style={{display:'none'}} className="btn">
-    </div>
+     
     </>
   )
 }
