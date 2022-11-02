@@ -1,11 +1,11 @@
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
+import { addDoc, collection, onSnapshot, orderBy, query, serverTimestamp } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
-import { db } from '../../firebase'
+import { auth, db } from '../../firebase'
 import Button from './index'   
 
-const Wactlistbtn = ({value, id,id2,coin}) => {
- 
 
+const Wactlistbtn = ({ id,id2,coin}) => {
+ 
    const addlist =async () =>{
   const payload = {
     name : coin.name,
@@ -16,20 +16,12 @@ const Wactlistbtn = ({value, id,id2,coin}) => {
   }
  await addDoc(collection(db,'id'),payload);
    }
-  const check = ()=>{
-     if(value.includes(coin.name)){
-       console.log(false);
-       return false
-     }else{
-      console.log(true);
-      return true
-     }
-  }
+
 
    
   return (
-    <> <div style={{ display:id2!=undefined ?'none':'inherit'  }}   >
-    <Button   onClick={ addlist} text={check==true? "Add to WatchList +" : 'Already Added' } />
+    <> <div style={{ display:id2!=undefined || !auth.currentUser ?'none':'inherit'  }}   >
+    <Button    onClick={ addlist } text={ "Add to WatchList +"  } />
     </div>
     </>
   )

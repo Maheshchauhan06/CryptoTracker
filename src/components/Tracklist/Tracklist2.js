@@ -6,9 +6,8 @@ import ExitToAppRoundedIcon from '@mui/icons-material/ExitToAppRounded';
 import { signOut } from 'firebase/auth';
 import { DeleteForeverRounded } from '@mui/icons-material';
 import { useEffect , useState } from 'react';
-import { collection, onSnapshot, query } from 'firebase/firestore';
+import { collection, deleteDoc, doc, onSnapshot, query } from 'firebase/firestore';
 import { orderBy } from 'firebase/firestore';
-import Wactlistbtn from '../Button/Wactlistbtn';
 
 
 const Tracklist2 = () => {
@@ -27,10 +26,13 @@ const Tracklist2 = () => {
       ))
     })
   }, [])
+
+    const [delet, setdelet] = useState([])
+
+    const deleted = async (id) =>{
+       await deleteDoc(doc(db,'id',id));
+    }
   
-     const value = crypto.map((newvalue)=>{
-       return newvalue.name;
-     })
 
     
 
@@ -46,16 +48,17 @@ const Tracklist2 = () => {
     <h3 > {auth.currentUser?.displayName} </h3>
     <h3 > Track list </h3>
     <div className='track-list' >
+   
    { crypto?.map(
-     (value,id) =>  <> <span key={id} >  <div><img style={{width:'25px' }} src={value.img} alt="internet problem" /> {value.name} {value.price}$  </div>    <DeleteForeverRounded sx={{cursor:'pointer', ":hover": { fontSize:'2rem' } }} /> </span>
-
+     (value,id) =>  <> 
+     <span key={id} >  <a href={`/coin?${value.crytpoid}`}>
+      <div className='value'><img style={{width:'25px' }} src={value.img} alt="internet problem" /> {value.name} {value.price}$  </div>
+      </a>    <DeleteForeverRounded  onClick={()=>deleted(value.id)} sx={{cursor:'pointer', ":hover": { fontSize:'2rem' } }} /> </span>
      </>
    )
    }
      </div>
-     <div style={{display:'none'}} >
-     <Wactlistbtn  value={value}  />
-     </div>
+    
      <button onClick={signout} ><ExitToAppRoundedIcon sx={{fontSize:'1.5rem', marginRight:'1rem', color:'var(--white)' }} /> Log Out</button>
     </div>
      
