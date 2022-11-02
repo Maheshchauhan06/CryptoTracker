@@ -8,7 +8,6 @@ import { DeleteForeverRounded } from '@mui/icons-material';
 import { useEffect , useState } from 'react';
 
 
-
 const Tracklist2 = () => {
  const signout =()=>{
     signOut(auth,provider);
